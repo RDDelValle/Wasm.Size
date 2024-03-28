@@ -1,0 +1,41 @@
+﻿@page "/"
+@inject ISizeManager SizeManager
+<PageTitle>Home</PageTitle>
+<div class="container">
+    <button class="btn-primary" @onclick="HandleDefaultClick">Default Font Size</button>
+    <button class="btn-primary" @onclick="HandleSmallClick">Small Font Size</button>
+    <button class="btn-primary" @onclick="HandleLargeClick">Large Font Size</button>
+    <button class="btn-primary" @onclick="HandleExtraLargeClick">ExtraLarge Font Size</button>
+</div>
+<div class="container">
+    <h1>Welcome!</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dicta dolorum eos ipsam molestias optio. Alias distinctio doloremque eaque eligendi, explicabo nemo neque nobis quaerat quidem sed voluptate voluptatum! Placeat.</p>
+    <h2>Lorem ipsum dolor.</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab asperiores corporis debitis esse iusto molestiae, nulla rerum sint totam? Accusantium animi enim ipsum nisi nobis perspiciatis praesentium quo vero voluptas?</p>
+    <h3>Lorem ipsum.</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquam asperiores atque autem corporis dolorem ea, est eum fuga fugiat incidunt iusto laudantium, libero quaerat recusandae sapiente sit tempore voluptates?</p>
+</div>
+
+@code {
+
+    private async Task HandleDefaultClick()
+    {
+        await SizeManager.SetUserPreferredSizeAsync(SizeType.Default);
+    }
+
+    private async Task HandleSmallClick()
+    { 
+        await SizeManager.SetUserPreferredSizeAsync(SizeType.Sm);
+    }
+
+    private async Task HandleLargeClick()
+    { 
+        await SizeManager.SetUserPreferredSizeAsync(SizeType.Lg);
+    }
+    
+    private async Task HandleExtraLargeClick()
+    { 
+        await SizeManager.SetUserPreferredSizeAsync(SizeType.Xl);
+    }
+
+}
